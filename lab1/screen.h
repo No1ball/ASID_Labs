@@ -2,8 +2,8 @@
 // Created by asus on 03.04.2022.
 //
 
-#ifndef LAB1_SCREEN_H
-#define LAB1_SCREEN_H
+#ifndef LAB11_SCREEN_H
+#define LAB11_SCREEN_H
 const int XMAX=120; //Размер экрана
 const int YMAX=50;
 class point {	//Точка на экране

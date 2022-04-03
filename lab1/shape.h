@@ -2,8 +2,8 @@
 // Created by asus on 03.04.2022.
 //
 
-#ifndef LAB1_SHAPE_H
-#define LAB1_SHAPE_H
+#ifndef LAB11_SHAPE_H
+#define LAB11_SHAPE_H
 #include <list>
 #include <iostream>
 
