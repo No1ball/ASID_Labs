@@ -106,10 +106,13 @@ public:
     point seast( ) const { return point(w.x<e.x? e.x : w.x, e.y<w.y? e.y : w.y); }
     point nwest( ) const { return point(w.x<e.x? w.x : e.x, e.y<w.y? w.y : e.y); }
     point swest( ) const { return point(w.x<e.x? w.x : e.x, e.y<w.y? e.y : w.y); }
-    void move(int a, int b) 	{ w.x += a; w.y += b; e.x += a; e.y += b; }
+    void move(int a, int b){ w.x += a; w.y += b; e.x += a; e.y += b; }
     void draw( ) { put_line(w, e); }
     void resize(double d) // Изменение длины линии в (d) раз
-    { e.x = w.x + (e.x - w.x) * d; e.y = w.y + (e.y - w.y) * d; }
+    {
+        e.x = w.x + (e.x - w.x) * d;
+        e.y = w.y + (e.y - w.y) * d;
+    }
 };
 // Прямоугольник
 class rectangle : public rotatable {
@@ -133,15 +136,25 @@ public:
     point nwest( ) const { return point(sw.x, ne.y); }
     point swest( ) const { return sw; }
     void rotate_right() // Поворот вправо относительно se
-    { int w = ne.x - sw.x, h = ne.y - sw.y; //(учитывается масштаб по осям)
-        sw.x = ne.x - h * 2; ne.y = sw.y + w / 2;	}
+    {
+        int w = ne.x - sw.x, h = ne.y - sw.y; //(учитывается масштаб по осям)
+        sw.x = ne.x - h * 2;
+        ne.y = sw.y + w / 2;
+    }
     void rotate_left() // Поворот влево относительно sw
-    { int w = ne.x - sw.x, h = ne.y - sw.y;
-        ne.x = sw.x + h * 2; ne.y = sw.y + w / 2; }
+    {
+        int w = ne.x - sw.x, h = ne.y - sw.y;
+        ne.x = sw.x + h * 2; ne.y = sw.y + w / 2;
+    }
     void move(int a, int b)
-    { sw.x += a; sw.y += b; ne.x += a; ne.y += b; }
+    {
+        sw.x += a; sw.y += b; ne.x += a; ne.y += b;
+    }
     void resize(int d)
-    { ne.x = sw.x + (ne.x - sw.x) * d; ne.y = sw.y + (ne.y - sw.y) * d; }
+    {
+        ne.x = sw.x + (ne.x - sw.x) * d;
+        ne.y = sw.y + (ne.y - sw.y) * d;
+    }
     void draw( )
     {
         put_line(nwest( ), ne);   put_line(ne, seast( ));
